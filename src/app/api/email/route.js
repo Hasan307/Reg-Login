@@ -1,10 +1,15 @@
-export default async function GET(req, res) {
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer"
+
+
+
+export  async function GET(req, res) {
   const { searchParams } = new URL(req.url);
   let toEmail = searchParams.get("email");
 
   //transporter
 
-  let Transporter = nodemailer.createTransporter({
+  let Transporter = nodemailer.createTransport({
     host: "mail.teamrabbil.com",
     port: 25,
     secure: false,
