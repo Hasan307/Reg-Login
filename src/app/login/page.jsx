@@ -29,7 +29,7 @@ const Page = () => {
             const response = await fetch("/api/login", config)
             const json=await response.json();
             if(json['status']===true){
-                router.replace("/dashboard")
+                router.replace("../dashboard")
             }
             else {
                 alert(json['message'])
@@ -42,23 +42,18 @@ const Page = () => {
 
     return (
 
-        <div className="w-full max-w-xs">
-               <form onSubmit={Submit}  className="card p-5 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                        <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">User Email</label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={formValue.email} onChange={(e)=>inputChange('email',e.target.value)} type="email" placeholder="example@example.com"/>
-                        </div>
-                        <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">User Password</label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={formValue.password} onChange={(e)=>inputChange('password',e.target.value)} type="password" placeholder="XXXXXXX"/>
-                        </div>
-                        <input className="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded" type="submit" value="Login" />
-
-                    
+        <div className="container">
+            <div className="row d-flex vh-100 align-content-center justify-content-center">
+                <div className="col-5 ">
+                    <form onSubmit={Submit}  className="card p-5">
+                        <label className="form-label">User Email</label>
+                        <input className="form-control" value={formValue.email} onChange={(e)=>inputChange('email',e.target.value)} type="email" placeholder="example@example.com"/>
+                        <label className="form-label mt-3">User Password</label>
+                        <input className="form-control" value={formValue.password} onChange={(e)=>inputChange('password',e.target.value)} type="password" placeholder="XXXXXXX"/>
+                        <input className="btn btn-primary mt-3" type="submit" value="Login" />
                     </form>
-                    
-            
-           
+                </div>
+            </div>
         </div>
 
     );
