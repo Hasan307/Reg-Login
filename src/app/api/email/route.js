@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer"
+import nodemailer from "nodemailer";
+import { TokenCookie} from "@/app/utility/TokenCookie";
 
 
 
-export  async function GET(req, res) {
-  const { searchParams } = new URL(req.url);
-  let toEmail = searchParams.get("email");
+export  async function POST(req, res) {
+  const JsonBody = await req.json()
+  let email=JsonBody['email'];
+  let password=JsonBody['password'];
 
   //transporter
 
@@ -24,14 +26,20 @@ export  async function GET(req, res) {
 
   let mailOptions = {
     from: "Abu Hasan <info@teamrabbil.com>",
-    to: toEmail,
+    to: email,
     subject: "Test Purpose",
     text: "jsdjfsdfjsdjfjfds ",
   };
 
   try {
     let result = await Transporter.sendMail(mailOptions);
-    return NextResponse.json({ msg: result });
+    
+    let Cookie =await TokenCookie(email);
+        return NextResponse.json(
+            {status:true,message:"Request completed"},
+            {status: 200, headers:Cookie}
+        )
+    
   } 
   catch {
     return NextResponse.json({ msg: "Error asche bro" });

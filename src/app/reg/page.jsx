@@ -26,7 +26,7 @@ const Page = () => {
             alert("Password Required")
         }
         else{
-            const config = {method: 'POST', body: JSON.stringify(email1)}
+            const config = {method: 'POST', body: JSON.stringify(formValue)}
             const response = await fetch("/api/email", config)
             const json=await response.json();
             if(json['status']===true){
@@ -51,7 +51,7 @@ const Page = () => {
                         <input className="form-control" value={formValue.email} onChange={(e)=>inputChange('email',e.target.value)} type="email" placeholder="example@example.com"/>
                         <label className="form-label mt-3">User Password</label>
                         <input className="form-control" value={formValue.password} onChange={(e)=>inputChange('password',e.target.value)} type="password" placeholder="XXXXXXX"/>
-                        <input className="btn btn-primary mt-3" type="submit" value="Login" />
+                        <input className="btn btn-primary mt-3" type="submit" value="Registration" />
                     </form>
                 </div>
             </div>
