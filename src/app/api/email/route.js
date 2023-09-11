@@ -45,3 +45,9 @@ export  async function POST(req, res) {
     return NextResponse.json({ msg: "Error asche bro" });
   }
 }
+export async function GET(req,res) {
+  cookies().delete('token')
+  return NextResponse.json(
+      {status:true,message:"Request Completed"}
+  )
+}
