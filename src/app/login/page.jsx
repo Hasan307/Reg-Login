@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 
 const Page = () => {
 
-    const [formValue,SetFormValue]=useState({email:"email@email.com",password:"123"})
+    const [formValue,SetFormValue]=useState({email:"hasan@email.com",password:"123"})
     const router=useRouter();
 
     const inputChange = (name,value) => {
@@ -45,6 +45,7 @@ const Page = () => {
         <div className="container">
             <div className="row d-flex vh-100 align-content-center justify-content-center">
                 <div className="col-5 ">
+                    <h1>Login Page</h1>
                     <form onSubmit={Submit}  className="card p-5">
                         <label className="form-label">User Email</label>
                         <input className="form-control" value={formValue.email} onChange={(e)=>inputChange('email',e.target.value)} type="email" placeholder="example@example.com"/>

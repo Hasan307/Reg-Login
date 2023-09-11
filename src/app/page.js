@@ -8,6 +8,7 @@ const Page = () => {
                     <div className="col-6 text-center">
                         <div className="btn-group">
                             <Link className="btn btn-success" href={"/login"} replace>Sign In</Link>
+                            <Link className="btn btn-info" href={"/reg"} replace>Sign up</Link>
                             <Link className="btn btn-primary" href={"/dashboard"} replace>Dashboard</Link>
                         </div>
                     </div>
