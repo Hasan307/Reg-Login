@@ -46,6 +46,7 @@ const Page = () => {
             <div className="row d-flex vh-100 align-content-center justify-content-center">
                 <div className="col-5 ">
                     <h1>Login Page</h1>
+                    <p>Use hasan@email.com and 123</p>
                     <form onSubmit={Submit}  className="card p-5">
                         <label className="form-label">User Email</label>
                         <input className="form-control" value={formValue.email} onChange={(e)=>inputChange('email',e.target.value)} type="email" placeholder="example@example.com"/>
